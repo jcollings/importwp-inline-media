@@ -2,13 +2,13 @@
 
 Requires Import WP: 2.14.1
 
-**Version: 0.0.1**
+**Version: **STABLE_TAG****
 
 ## Description
 
 Import Media from imported post content into the wordpress media library
 
-## FAQ 
+## FAQ
 
 ### What fields can does the inline media work with.
 
