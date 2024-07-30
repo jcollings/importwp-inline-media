@@ -2,7 +2,7 @@
 
 Requires Import WP: 2.14.1
 
-**Version: **STABLE_TAG****
+**Version: __STABLE_TAG__**
 
 ## Description
 

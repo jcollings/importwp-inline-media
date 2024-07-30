@@ -18,18 +18,18 @@ cd "$SCRIPTPATH/.."
 
 # Build plugin
 if [ -f "package.json" ]; then
-    npm i --include=dev
-    npm run build
+    pnpm i --include=dev
+    pnpm run build
 fi
 
 FOLDER=build
 
 # Move to other directory
 if [ -d "$FOLDER" ]; then rm -Rf $FOLDER; fi
-git clone --branch $BRANCH git@github.com:importwp/importwp-inline-media.git $FOLDER
+git clone --branch $BRANCH git@github.com:jcollings/importwp-inline-media.git $FOLDER
 cd $FOLDER
 git rm -rf .
-rsync -av .. . --exclude '.git' --exclude '.github' --exclude 'bin' --exclude "$FOLDER" --exclude 'node_modules' --exclude 'src' --exclude 'tests' --exclude 'vendor' --exclude '.babelrc' --exclude '.gitattributes' --exclude '.gitignore' --exclude '.phpcs.xml.dist' --exclude '.phpunit.result.cache' --exclude '.travis.yml' --exclude 'composer.json' --exclude 'composer.lock' --exclude 'package-lock.json' --exclude 'package.json' --exclude 'phpunit.xml.dist' --exclude 'webpack.config.js' --exclude '.wp-env.json'
+rsync -av .. . --exclude '.git' --exclude '.github' --exclude 'bin' --exclude "$FOLDER" --exclude 'node_modules' --exclude 'src' --exclude 'tests' --exclude 'vendor' --exclude '.babelrc' --exclude '.gitattributes' --exclude '.gitignore' --exclude '.phpcs.xml.dist' --exclude '.phpunit.result.cache' --exclude '.travis.yml' --exclude 'composer.json' --exclude 'composer.lock' --exclude 'package-lock.json' --exclude 'package.json' --exclude 'phpunit.xml.dist' --exclude 'webpack.config.js' --exclude '.wp-env.json' --exclude 'pnpm-lock.yaml'
 
 # Set version numbers
 sed -i -e "s/__STABLE_TAG__/$TAG/g" README.md
