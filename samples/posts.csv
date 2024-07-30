@@ -1,0 +1,6 @@
+Title, Content
+Post One PNG, <p>Test content before.</p><img src="https://placehold.co/600x400.png" /><p>Content after</p>
+Post Two JPG, <p>Test content before.</p><img src="https://placehold.co/600x400.jpg" /><p>Content after</p>
+Post Three SVG, <p>Test content before.</p><img src="https://placehold.co/600x400.svg" /><p>Content after</p>
+Post Four WEBP, <p>Test content before.</p><img src="https://placehold.co/600x400.webp" /><p>Content after</p>
+Post with A tag, <a href="https://placehold.co/600x400.png">Download image</a>

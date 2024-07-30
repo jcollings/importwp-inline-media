@@ -1,0 +1,12 @@
+{
+    "core": null,
+    "plugins": [
+        "importwp/importwp",
+        "."
+    ],
+    "env": {
+        "tests": {
+            "phpVersion": "8.1"
+        }
+    }
+}
