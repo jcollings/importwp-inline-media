@@ -2,3 +2,7 @@
 node_modules
 .phpunit.result.cache
 vendor
+.vscode
+
+bin/*
+!bin/build.sh

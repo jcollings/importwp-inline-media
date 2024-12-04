@@ -87,6 +87,60 @@ function iwp_im_replace_img_src($matches)
 
             $attachment = wp_get_attachment_image_src($attachment_id, 'full');
             return "src={$wrapper}{$attachment[0]}{$wrapper}";
+
+        case 'srcset':
+
+            $wrapper = substr($matches[2], 0, 1);
+            $value = substr($matches[2], 1, -1);
+
+            $output = [];
+
+            /**
+             * @var Filesystem $filesystem
+             */
+            $filesystem = Container::getInstance()->get('filesystem');
+
+            /**
+             * @var Attachment $attachment
+             */
+            $attachment = Container::getInstance()->get('attachment');
+
+            $parts = explode(',', $value);
+            $parts = array_map('trim', $parts);
+
+            foreach ($parts as $part) {
+                list($image, $size) = explode(' ', $part);
+
+                if (!apply_filters('iwp/inline-media/source', true, $image)) {
+                    $output[] = $part;
+                    continue;
+                }
+
+                $attachment_id = $attachment->get_attachment_by_hash($image);
+                if ($attachment_id <= 0) {
+
+                    $result = $filesystem->download_file($image);
+                    if (is_wp_error($result)) {
+                        return $matches[0];
+                    }
+
+                    $attachment_id = $attachment->insert_attachment(null, $result['dest'], $result['mime']);
+                    if (is_wp_error($attachment_id)) {
+                        return $matches[0];
+                    }
+
+                    $attachment->store_attachment_hash($attachment_id, $image);
+                }
+
+                $attachment_data = wp_get_attachment_image_src($attachment_id, 'full');
+
+                $output[] = sprintf('%s %s', $attachment_data[0], $size);
+            }
+
+            $formatted_output = implode(', ', $output);
+
+            return "srcset={$wrapper}{$formatted_output}{$wrapper}";
+
         default:
             return $matches[0];
     }
@@ -99,7 +153,7 @@ function iwp_im_replace_img_src($matches)
  */
 function iwp_im_find_img_tags($matches)
 {
-    $allowed_attrs = apply_filters('iwp/inline-media/input-attributes', ['src']);
+    $allowed_attrs = apply_filters('iwp/inline-media/input-attributes', ['src', 'srcset']);
     if (empty($allowed_attrs)) {
         return $matches[0];
     }

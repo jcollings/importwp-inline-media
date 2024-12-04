@@ -51,7 +51,7 @@ add_filter('iwp/inline-media/source', function($allowed, $url){
 
 ### What html elements does the inline media check
 
-The inline media addon reads ```<img src=""/>```, but this can be extended using the following filters, e.g. to also search <a href="" />.
+The inline media addon reads `<img src=""/>`, but this can be extended using the following filters, e.g. to also search <a href="" />.
 
 ```php
 add_filter('iwp/inline-media/input-tags', function($tags){
@@ -65,6 +65,18 @@ add_filter('iwp/inline-media/input-attributes', function($tags){
     $tags[] = 'href';
     return $tags;
 });
+```
+
+### Stop WordPress removing srcset or sizes from image tag
+
+```php
+add_filter('wp_kses_allowed_html', function ($allowedposttags, $context) {
+
+    $allowedposttags['img']['srcset'] = true;
+    $allowedposttags['img']['sizes'] = true;
+
+    return $allowedposttags;
+}, 10, 2);
 ```
 
 ## Changelog
