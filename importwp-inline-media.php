@@ -5,7 +5,7 @@
  * Plugin URI: https://www.importwp.com
  * Description: Import Media from imported post content into the wordpress media library
  * Author: James Collings <james@jclabs.co.uk>
- * Version: 1.0.0 
+ * Version: 1.0.1 
  * Author URI: https://www.importwp.com
  * Network: True
  */

@@ -1,6 +1,7 @@
-Title, Content
-Post One PNG, <p>Test content before.</p><img src="https://placehold.co/600x400.png" /><p>Content after</p>
-Post Two JPG, <p>Test content before.</p><img src="https://placehold.co/600x400.jpg" /><p>Content after</p>
-Post Three SVG, <p>Test content before.</p><img src="https://placehold.co/600x400.svg" /><p>Content after</p>
-Post Four WEBP, <p>Test content before.</p><img src="https://placehold.co/600x400.webp" /><p>Content after</p>
-Post with A tag, <a href="https://placehold.co/600x400.png">Download image</a>
+Title," Content"
+Post One PNG," <p>Test content before.</p><img src=""https://placehold.co/600x400.png"" /><p>Content after</p>"
+Post Two JPG," <p>Test content before.</p><img src=""https://placehold.co/600x400.jpg"" /><p>Content after</p>"
+Post Three SVG," <p>Test content before.</p><img src=""https://placehold.co/600x400.svg"" /><p>Content after</p>"
+Post Four WEBP," <p>Test content before.</p><img src=""https://placehold.co/600x400.webp"" /><p>Content after</p>"
+Post with A tag," <a href=""https://placehold.co/600x400.png"">Download image</a>"
+Post with IMG Srcset,"<p>Test content before.</p><img fetchpriority=""high"" decoding=""async"" width=""4000"" height=""4000"" src=""https://placehold.co/6000x4000.png"" alt=""asd"" class=""wp-image-47"" srcset=""https://placehold.co/6000x4000.png 4000w, https://placehold.co/300x300.png 300w, https://placehold.co/1024x1024.png 1024w, https://placehold.co/150x150.png 150w, https://placehold.co/768x768.png 768w, https://placehold.co/1536x1536.png 1536w, https://placehold.co/2048x2048.png 2048w"" sizes=""(max-width: 4000px) 100vw, 4000px""><p>Content after</p>"
